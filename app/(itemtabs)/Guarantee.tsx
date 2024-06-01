@@ -1,13 +1,15 @@
-
 import {View, Text} from 'react-native'
 
-const Profile = () => {
+
+const Guarantee = () => {
+
+
 
 
     return (
         <View>
             <Text>
-                Profile
+                GGGGG
             </Text>
         </View>
 
@@ -15,4 +17,4 @@ const Profile = () => {
 }
 
 
-export default Profile
+export default Guarantee

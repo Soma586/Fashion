@@ -2,6 +2,7 @@ import  {View, Text} from 'react-native'
 import { createMaterialTopTabNavigator, MaterialTopTabNavigationOptions, MaterialTopTabNavigationEventMap } from "@react-navigation/material-top-tabs"
 import { ParamListBase, TabNavigationState } from "@react-navigation/native"
 import { withLayoutContext } from "expo-router"
+import { data } from '@/constants/data'
 
 
 const {Navigator} = createMaterialTopTabNavigator()
@@ -30,7 +31,6 @@ const Layout = () => {
               color: 'black',
               fontFamily : 'Poppins'
             },
-          
             style: {
               backgroundColor: 'white',
               height: 50,
@@ -45,9 +45,16 @@ const Layout = () => {
           }}>
         >
             <MaterialTopTabs.Screen name='Woman'
+            //initialParams={ {data : data.women}}
+            initialParams={{data : 'women'}}
             />
-            <MaterialTopTabs.Screen name='Man'/>
-            <MaterialTopTabs.Screen name='Kids'/>
+            <MaterialTopTabs.Screen name='Man'
+            initialParams={ {data : 'men'}}
+            />
+            <MaterialTopTabs.Screen name='Kids'
+            initialParams={ {data : 'kids'}}
+            />
+           
 
         </MaterialTopTabs>
     )

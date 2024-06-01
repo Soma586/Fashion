@@ -1,14 +1,22 @@
 import  _ from 'lodash'
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet, Pressable} from 'react-native'
 import { PoppinsText, PoppinsLightText } from './StyledText'
 import { FontAwesome } from '@expo/vector-icons'
+import { Link, router } from 'expo-router'
 
 
 
 
-const ItemCard = ({title , price, rating}) => {
+const ItemCard = (props) => {
 
 
+
+    const {
+        title,
+        price,
+        rating,
+        img
+    } = props
 
     let arr : number[] = Array(5).fill(0)
 
@@ -20,10 +28,9 @@ const ItemCard = ({title , price, rating}) => {
             
         }
 
-
     })
-    console.log(rating)
-    console.log(arr)
+    
+
 
     const displayRating = _.map(arr, (item) => {
 
@@ -34,11 +41,14 @@ const ItemCard = ({title , price, rating}) => {
         }
     })
     return (
+
+        <Pressable  onPress={() => router.push({pathname :'/detailTest', params :  props})}>
         <View style={styles.itemContainer}>
 
             <Image
-            style = {{height : 242, }}
-            source={ {uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+            style = {{height : 242, borderRadius : 10, marginBottom : 10}}
+            source={ {uri: img}}
+            resizeMode ='cover'
             />
 
 
@@ -69,15 +79,8 @@ const ItemCard = ({title , price, rating}) => {
             </PoppinsLightText>
 
 
-         
-         
-
-
-
-          
-
-
         </View>
+        </Pressable>
     )
 }
 
@@ -89,7 +92,8 @@ const styles = StyleSheet.create({
 
     itemContainer : {
         height : 360,
-        width : '100%'
+        width : '100%',
+        marginBottom : 20
     },
     text : {
         fontSize : 20 

@@ -21,6 +21,8 @@ function TabBarIcon(props: {
 
 
 
+
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -51,6 +53,13 @@ export default function TabLayout() {
         name="location"
         options={{
           title: 'Tab Two',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+          <Tabs.Screen
+        name="detailTest"
+        options={{
+          title: 'nnn',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
