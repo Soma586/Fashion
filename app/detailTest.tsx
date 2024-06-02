@@ -157,6 +157,7 @@ const Profile = () => {
                 >
                     <BottomSheetView style={styles.bottomSheetContainer}>
                         <View>
+                            <View style={{paddingHorizontal : 20}}>
                             <PoppinsText style={{fontSize : 23, marginBottom : 10}}>
                                 {title}
                             </PoppinsText>
@@ -174,7 +175,8 @@ const Profile = () => {
                             </View>
                             <View style={{ flexDirection : 'row', marginBottom : 14}}>
                                 {displayColors}
-                             </View>   
+                             </View> 
+                             </View>  
 
 
                              <View style={styles.sizesContainer}>
@@ -198,16 +200,31 @@ const Profile = () => {
                             {/* {visible && 
                             <CTA/>
                             } */}
-                              <Animated.View style={[styles.hiddenComponent, animatedOpacityStyle]}>
-          <CTA handlePress={addToCard}/>
-                </Animated.View>   
+                            <View style={{paddingHorizontal : 20}}>
+                              <View style={{flexDirection : 'row', justifyContent :'space-between', alignItems : 'center'}}>
+
+                                    <View style={styles.heartPadding}>
+                                    <AntDesign name='heart' size={20}/>
+                                    </View>
+                                  
+                                  <View style ={{width : 280}}>
+                                  <CTA handlePress={addToCard}/>
+                                  </View>
+                        
+                </View>   
+                </View>
             </View>
 
+
+            <View style={{paddingHorizontal : 20}}>
             <ReviewCard name={"George Mcfly"} review={"This was a very nice shirt"}/>
 
             <ReviewCard name={"Robin Massy"} review={"I really like this"}/>
 
             <ReviewCard name={"Andrew Smith"} review={"It really like met my expectations"}/>
+
+            <ReviewCard name={"Tarik Mulholland"} review={"wow this app is the best!"}/>
+            </View>
     
    
     
@@ -229,7 +246,7 @@ const styles = StyleSheet.create({
         height : '100%'
     },
     bottomSheetContainer : {
-        paddingHorizontal : 20
+       // paddingHorizontal : 20
     },
     colorPicker : {
         height : 35,
@@ -241,7 +258,8 @@ const styles = StyleSheet.create({
     sizesContainer : {
         paddingVertical : 12,
         backgroundColor : '#D8D8D8',
-        marginBottom : 12
+        marginBottom : 12,
+        paddingHorizontal : 20
        // position : 'absolute'
     },
     iconContainer : {
@@ -256,6 +274,11 @@ const styles = StyleSheet.create({
 
         padding : 14,
         backgroundColor : 'white',
+        borderRadius : 100
+    },
+    heartPadding : {
+        padding : 14,
+        backgroundColor : '#D8D8D8',
         borderRadius : 100
     },
     cartCount : {
