@@ -5,6 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import { View, Text} from 'react-native'
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -20,6 +21,17 @@ export const unstable_settings = {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+
+
+const Test = () => {
+
+  return (
+    <View>
+      <Text>big booty bitch</Text>
+    </View>
+  )
+}
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -44,6 +56,7 @@ export default function RootLayout() {
     return null;
   }
 
+  //return <Test/>
   return <RootLayoutNav />;
 }
 
@@ -51,12 +64,12 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <>
-      <Stack initialRouteName="(tabs)">
+    
+      <Stack >
+      <Stack.Screen  name="detailTest" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen  name="detailTest" options={{ headerShown: false }} />
-        {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
+        
       </Stack>
-    </>
+    
   );
 }

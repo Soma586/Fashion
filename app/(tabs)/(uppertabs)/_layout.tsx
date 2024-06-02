@@ -55,7 +55,7 @@ const Layout = () => {
         }
           >
         
-            <MaterialTopTabs.Screen name='Woman'
+            <MaterialTopTabs.Screen name='index'
             options={{title : 'Woman'}}
             initialParams={{data : 'women'}}
             />
