@@ -1,21 +1,24 @@
-import  {View, StyleSheet} from 'react-native'
+import  {View, StyleSheet, TouchableHighlight} from 'react-native'
 import { PoppinsText } from './StyledText'
 
 
 
-const CTA = () => {
+const CTA = ({handlePress}) => {
 
 
 
     return (
 
-        <View style={styles.button}>
+
+        <TouchableHighlight style={styles.button} onPress={handlePress}>
+        <View >
 
 
             <PoppinsText style={{color : 'white', alignSelf : 'center'}}>
                 Add to cart
             </PoppinsText>
         </View>
+        </TouchableHighlight>
 
     )
 }

@@ -8,14 +8,11 @@ import { PoppinsLightText, PoppinsText } from '@/components/StyledText';
 import CTA from '@/components/CTA';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, interpolate } from 'react-native-reanimated';
 import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator, MaterialTopTabNavigationOptions, Trans } from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator, MaterialTopTabNavigationOptions } from '@react-navigation/material-top-tabs';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import ReviewCard from '@/components/ReviewCard';
-import { FontAwesome } from '@expo/vector-icons'
-
-const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
-
-const Tab = createMaterialTopTabNavigator();
+import { FontAwesome, Feather, AntDesign } from '@expo/vector-icons'
+import { Link, router } from 'expo-router'
 
 const Profile = () => {
 
@@ -32,13 +29,18 @@ const Profile = () => {
 
   
     
-
+    const [cartCount, setCount] = useState(0)
 
   
 
 
+    const addToCard = () => {
+
+        setCount(prev => prev + 1)
+    }
+
     //useSe
-    const { title, rating, price } = useLocalSearchParams()
+    const { title, rating, price, img } = useLocalSearchParams()
 
     let arr : number[] = Array(5).fill(0)
 
@@ -94,7 +96,7 @@ const Profile = () => {
     console.log(title)
     
 
-    const snapPoints = useMemo(() => [ '40%','90%'], []);
+    const snapPoints = useMemo(() => [ '40%','80%'], []);
 
 
     const displayColors = _.map(colorList, (color) =>{
@@ -132,8 +134,22 @@ const Profile = () => {
         <View>
             <ImageBackground
             style={styles.container}
-            source={image}
+            source={ {uri : img}}
             >
+
+                <View style={styles.iconContainer}>
+                    <Pressable onPress={ () => router.back()}>
+                    <View style={styles.whitepadding}>
+                    <AntDesign name='arrowleft' size={25}/>
+                    </View >
+                    </Pressable>
+                    
+                    <View style={styles.whitepadding}>
+                        <View style={styles.cartCount}><PoppinsText style={{color : 'white'}}>{cartCount}</PoppinsText></View>
+                    <AntDesign name='shoppingcart' size={25}/>
+                    </View>
+                   
+                   </View> 
                 <BottomSheet 
                   ref={bottomSheetRef}
                   onChange={handleSheetChanges}
@@ -166,7 +182,7 @@ const Profile = () => {
                                  <View style={{flexDirection : 'row', justifyContent : 'space-between', alignItems : 'center'}}>
 
                                      <PoppinsText style={ {fontSize : 16}}>
-                                         Available Spacesgg :
+                                         Available Spaces :
                                      </PoppinsText>
 
                                      <View style={{flexDirection : 'row', justifyContent : 'space-between', width : 160}}>
@@ -183,7 +199,7 @@ const Profile = () => {
                             <CTA/>
                             } */}
                               <Animated.View style={[styles.hiddenComponent, animatedOpacityStyle]}>
-          <CTA/>
+          <CTA handlePress={addToCard}/>
                 </Animated.View>   
             </View>
 
@@ -227,6 +243,32 @@ const styles = StyleSheet.create({
         backgroundColor : '#D8D8D8',
         marginBottom : 12
        // position : 'absolute'
+    },
+    iconContainer : {
+        flexDirection : 'row', 
+        justifyContent : 'space-between', 
+        position : 'absolute',
+        top : 70,
+        width : '100%',
+        paddingHorizontal : 20
+    },
+    whitepadding : {
+
+        padding : 14,
+        backgroundColor : 'white',
+        borderRadius : 100
+    },
+    cartCount : {
+        borderRadius : 100,
+        backgroundColor : 'red',
+        //padding : 7,
+        position : 'absolute',
+        right : 4,
+        top : 3,
+        alignSelf : 'center',
+        paddingHorizontal : 8,
+        paddingVertical :2,
+        zIndex : 10
     }
 
 })

@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Octicons, SimpleLineIcons, AntDesign} from '@expo/vector-icons'
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 
@@ -38,29 +39,29 @@ export default function TabLayout() {
         name="(uppertabs)"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <Octicons name="home" color={color} size={20}/>,
     
         }}
       />
       <Tabs.Screen
         name="WishList"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Wishlist',
+          tabBarIcon: ({ color }) => <Octicons name="heart" color={color} size={20} />,
         }}
       />
       <Tabs.Screen
         name="location"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Location',
+          tabBarIcon: ({ color }) => <SimpleLineIcons name='location-pin' color={color} size={20}/>,
         }}
       />
           <Tabs.Screen
         name="detailTest"
         options={{
           title: 'nnn',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <AntDesign name="user" color={color} />,
         }}
       />
     </Tabs>
