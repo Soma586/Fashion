@@ -10,7 +10,7 @@ const Sora = () => {
 
     const {data} = useLocalSearchParams()
 
-    const displayCards = _.map(List[data],( item) => {
+    const displayCards = _.map(List[`${data}`],( item) => {
 
         return <ItemCard {...item}/>
     })
@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
 
     container : {
 
-        paddingHorizontal : 20
+        paddingHorizontal : 20,
+        paddingTop : 18
     }
 })
 

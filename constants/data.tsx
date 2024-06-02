@@ -1,4 +1,16 @@
-export const List = {
+export interface ListItem {
+    title: string;
+    img: string;
+    price: string;
+    rating: number;
+  }
+  
+  export interface List {
+    [key: string]: ListItem[];
+  }
+
+
+export const List : List = {
 
 
     men : [

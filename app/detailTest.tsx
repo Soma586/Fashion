@@ -7,9 +7,6 @@ import { useLocalSearchParams } from 'expo-router';
 import { PoppinsLightText, PoppinsText } from '@/components/StyledText';
 import CTA from '@/components/CTA';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, interpolate } from 'react-native-reanimated';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator, MaterialTopTabNavigationOptions } from '@react-navigation/material-top-tabs';
-import EditScreenInfo from '@/components/EditScreenInfo';
 import ReviewCard from '@/components/ReviewCard';
 import { FontAwesome, Feather, AntDesign } from '@expo/vector-icons'
 import { Link, router } from 'expo-router'
@@ -105,16 +102,6 @@ const Profile = () => {
         )
     })
 
-
-    // const screenOptions = useMemo<MaterialTopTabNavigationOptions>(
-    //     () => ({
-    
-
-    //       safeAreaInsets: { top: 0 },
-         
-    //     }),
-    //     []
-    //   );
     return (
         <GestureHandlerRootView>
 
@@ -133,7 +120,9 @@ const Profile = () => {
                     </Pressable>
                     
                     <View style={styles.whitepadding}>
-                        <View style={styles.cartCount}><PoppinsText style={{color : 'white'}}>{cartCount}</PoppinsText></View>
+                        {cartCount !== 0 && (
+                        <View style={styles.badge}><PoppinsText style={{color : 'white'}}>{cartCount}</PoppinsText></View>
+                        )}
                     <AntDesign name='shoppingcart' size={25}/>
                     </View>
                    
@@ -269,7 +258,7 @@ const styles = StyleSheet.create({
         backgroundColor : '#D8D8D8',
         borderRadius : 100
     },
-    cartCount : {
+    badge : {
         borderRadius : 100,
         backgroundColor : 'red',
         //padding : 7,

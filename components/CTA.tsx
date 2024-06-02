@@ -3,7 +3,12 @@ import { PoppinsText } from './StyledText'
 
 
 
-const CTA = ({handlePress}) => {
+
+interface CTAProps {
+    handlePress: () => void;
+  }
+
+const CTA: React.FC<CTAProps>  = ({handlePress}) => {
 
 
 

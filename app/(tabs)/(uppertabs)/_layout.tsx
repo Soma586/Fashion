@@ -2,13 +2,36 @@ import  {View, Text} from 'react-native'
 import { createMaterialTopTabNavigator, MaterialTopTabNavigationOptions, MaterialTopTabNavigationEventMap } from "@react-navigation/material-top-tabs"
 import { ParamListBase, TabNavigationState } from "@react-navigation/native"
 import { withLayoutContext } from "expo-router"
-import { data } from '@/constants/data'
+
 
 
 const {Navigator} = createMaterialTopTabNavigator()
 
 
-
+interface CustomTabBarOptions extends MaterialTopTabNavigationOptions {
+  pressColor: string;
+  pressOpacity: number;
+  labelStyle: {
+    fontSize: number;
+    textTransform: string;
+    color: string;
+    fontFamily: string;
+  };
+  style: {
+    backgroundColor: string;
+    height: number;
+    elevation: number;
+  };
+  indicatorStyle: {
+    backgroundColor: string;
+    height: number;
+  };
+  tabStyle: {
+    width: string;
+    marginLeft: number;
+    alignItems: string;
+  };
+}
 export const MaterialTopTabs = withLayoutContext<
 MaterialTopTabNavigationOptions,
 typeof Navigator,
@@ -22,30 +45,18 @@ const Layout = () => {
 
     return (
         <MaterialTopTabs
-        tabBarOptions={{
-            pressColor: 'transparent',
-            pressOpacity: 1,
-            labelStyle: {
-              fontSize: 16,
-              textTransform: 'none',
-              color: 'black',
-              fontFamily : 'Poppins'
-            },
-            style: {
-              backgroundColor: 'white',
-              height: 50,
-              elevation: 0,
-            },
-            indicatorStyle: {
-              backgroundColor: 'black',
-              height: 4,
-            },
-            tabStyle: {width: 'auto', marginLeft: 10, alignItems: 'center' },
-    
-          }}>
-        >
+        screenOptions = {
+          {
+            tabBarLabelStyle: { fontSize: 16, fontFamily: 'Poppins', color : 'black', textTransform: 'none' },
+            tabBarStyle: { justifyContent: 'flex-start'},
+            tabBarIndicatorStyle : { backgroundColor : 'black', height : 4},
+            tabBarItemStyle:{ width:100, }   
+          }
+        }
+          >
+        
             <MaterialTopTabs.Screen name='Woman'
-            //initialParams={ {data : data.women}}
+            options={{title : 'Woman'}}
             initialParams={{data : 'women'}}
             />
             <MaterialTopTabs.Screen name='Man'

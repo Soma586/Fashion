@@ -8,7 +8,7 @@ import ItemCard from '@/components/ItemCard';
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <ItemCard title="Black Skeleton T-Shirt" price ={'$125.35'} rating={4}/>
+      {/* <ItemCard title="Black Skeleton T-Shirt" price ={'$125.35'} rating={4}/> */}
       {/* <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/index.tsx" /> */}
     </View>
