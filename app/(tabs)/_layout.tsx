@@ -20,15 +20,6 @@ function TabBarIcon(props: {
 }
 
 
-function LogoTitle() {
-  return (
-    <Image
-      style={{ width: 50, height: 50 }}
-      source={{uri : 'https://1000logos.net/wp-content/uploads/2022/08/One-Piece-Logo.png'}}
-    />
-  );
-}
-
 
 
 
@@ -39,19 +30,17 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        //tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        //headerShown: useClientOnlyValue(false, true),
+        tabBarActiveTintColor : 'red'
       }}>
       <Tabs.Screen
         name="(uppertabs)"
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => <Octicons name="home" color={color} size={20}/>,
-        
-          
-          //headerTitle: (props) => <LogoTitle {...props} /> 
           header : (props) => <CustomHeader {...props}/>
     
         }}
@@ -72,10 +61,10 @@ export default function TabLayout() {
         }}
       />
           <Tabs.Screen
-        name="detailTest"
+        name="detailpage"
         options={{
-          title: 'nnn',
-          tabBarIcon: ({ color }) => <AntDesign name="user" color={color} />,
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <AntDesign name="user" color={color} size={20} />,
         }}
       />
     </Tabs>
