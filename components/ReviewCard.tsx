@@ -4,7 +4,12 @@ import { PoppinsLightText, PoppinsText } from './StyledText'
 
 
 
-const ReviewCard = ({name, review}) => {
+interface reviewCardprop {
+    name : string,
+    review : string
+}
+
+const ReviewCard = ({name, review } : reviewCardprop) => {
 
 
 

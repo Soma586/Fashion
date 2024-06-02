@@ -139,7 +139,7 @@ const Profile = () => {
                                 {title}
                             </PoppinsText>
 
-                            <View style={{flexDirection : 'row' , justifyContent : 'space-between'}}>
+                            <View style={{flexDirection : 'row' , justifyContent : 'space-between', alignItems : 'center'}}>
 
                                 <View style={{flexDirection : 'row'}}>
                                 {displayRating}

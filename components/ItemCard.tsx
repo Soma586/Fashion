@@ -47,7 +47,7 @@ const ItemCard = (props : proptype) => {
     })
     return (
 
-        <Pressable  onPress={() => router.push({pathname :'/detailTest', params : {...props}})}>
+        <Pressable  onPress={() => router.push({pathname :'/detailTest', params : {...props} })}>
         <View style={styles.itemContainer}>
 
             <Image
