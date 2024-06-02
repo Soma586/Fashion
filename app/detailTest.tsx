@@ -63,16 +63,6 @@ const Profile = () => {
         }
     })
 
-
-    // const handleSheetChanges = useCallback((index) => {
-    //     // If the bottom sheet is fully expanded (index 2), hide the component
-    //     if (index === 2) {
-    //       setIsVisible(false);
-    //     } else {
-    //       setIsVisible(true);
-    //     }
-    //   }, []);
-
     const bottomSheetPosition = useSharedValue(0);
 
     const handleSheetChanges = useCallback((index) => {
@@ -92,8 +82,6 @@ const Profile = () => {
         };
       });
     
-
-    console.log(title)
     
 
     const snapPoints = useMemo(() => [ '40%','80%'], []);
@@ -219,11 +207,11 @@ const Profile = () => {
             <View style={{paddingHorizontal : 20}}>
             <ReviewCard name={"George Mcfly"} review={"This was a very nice shirt"}/>
 
-            <ReviewCard name={"Robin Massy"} review={"I really like this"}/>
+            <ReviewCard name={"Robin S."} review={"I really like this"}/>
 
             <ReviewCard name={"Andrew Smith"} review={"It really like met my expectations"}/>
 
-            <ReviewCard name={"Tarik Mulholland"} review={"wow this app is the best!"}/>
+            <ReviewCard name={"Tarik M."} review={"wow this app is the best!"}/>
             </View>
     
    

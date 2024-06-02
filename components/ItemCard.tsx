@@ -5,9 +5,14 @@ import { FontAwesome } from '@expo/vector-icons'
 import { Link, router } from 'expo-router'
 
 
+interface proptype  {
+    title : string,
+    price : string,
+    rating : number,
+    img :string
+}
 
-
-const ItemCard = (props) => {
+const ItemCard = (props : proptype) => {
 
 
 
@@ -32,7 +37,7 @@ const ItemCard = (props) => {
     
 
 
-    const displayRating = _.map(arr, (item) => {
+    const displayRating = _.map(arr, (item : number) => {
 
         if(item === 1) {
             return <FontAwesome style={{marginRight : 3}} name='star' size={18}/>
@@ -42,7 +47,7 @@ const ItemCard = (props) => {
     })
     return (
 
-        <Pressable  onPress={() => router.push({pathname :'/detailTest', params :  props})}>
+        <Pressable  onPress={() => router.push({pathname :'/detailTest', params : {...props}})}>
         <View style={styles.itemContainer}>
 
             <Image

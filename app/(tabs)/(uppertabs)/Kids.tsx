@@ -11,19 +11,6 @@ const Sora = () => {
     const {data} = useLocalSearchParams()
 
 
-    console.log(useLocalSearchParams())
-    console.log("wtf")
-    console.log(data)
-    //console.log(typeof data)
-    //console.log(...data)
-
-
-    //console.log(data[0][0])
-    //console.log(data[0])
-    //console.log(...data)
-
-    //console.log(JSON.stringify(data, null, 2));
-    //console.log(data)
     const displayCards = _.map(List[data],( item) => {
 
         return <ItemCard {...item}/>
